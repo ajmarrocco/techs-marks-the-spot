@@ -32,6 +32,7 @@ Post.init(
                 isURL: true
             }
         },
+        // foreign key
         user_id: {
             type: DataTypes.INTEGER,
             references: {
