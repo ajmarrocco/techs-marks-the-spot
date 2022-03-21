@@ -41,10 +41,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/post/:id', (req, res) => {
-    Post.findOne({
-        where: {
-            id: req.params.id
-        },
+    Post.findByPk(req.params.id, {
         attributes: [
             'id',
             'post_url',
@@ -95,5 +92,14 @@ router.get('/login', (req, res) => {
     
     res.render('login');
 });
+
+// router.get('/signup', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.redirect('/');
+//         return;
+//     }
+    
+//     res.render('signup');
+// });
 
 module.exports = router;

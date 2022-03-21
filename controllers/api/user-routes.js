@@ -15,11 +15,7 @@ router.get('/', (req, res) => {
 
 // GET /api/users/1
 router.get('/:id', (req, res) => {
-    User.findOne({
-        attributes: { exclude: ['password'] },
-        where: {
-            id: req.params.id
-        },
+    User.findByPk(req.params.id, {
         include: [
             {
                 model: Post,
