@@ -23,7 +23,7 @@ const postdata = [
     },
     {
         title: 'this',
-        post_content: `A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.`,
+        post_content: 'A function this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.',
         user_id: 7
     },
     {
