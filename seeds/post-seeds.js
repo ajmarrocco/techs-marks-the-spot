@@ -48,7 +48,7 @@ const postdata = [
     },
     {
         title: 'Middleware',
-        post_content: 'Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. ',
+        post_content: 'Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application is request-response cycle.',
         user_id: 5
     },
     {
