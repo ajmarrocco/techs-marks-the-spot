@@ -98,6 +98,13 @@ nav a {
     color: rgb(213, 255, 226);
 }
 
+button a {
+    color: rgb(213, 255, 226);
+}
+
+button a:hover {
+    color: rgb(213, 255, 226);
+}
 
 main {
     flex: 1;
