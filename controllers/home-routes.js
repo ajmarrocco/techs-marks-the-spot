@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'post_url',
+            'post_content',
             'title',
             'created_at'
         ],
@@ -44,7 +44,7 @@ router.get('/post/:id', (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: [
             'id',
-            'post_url',
+            'post_content',
             'title',
             'created_at',
         ],

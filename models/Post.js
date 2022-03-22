@@ -23,13 +23,13 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // define a post_url column
-        post_url: {
+        // define a post_content column
+        post_content: {
             type: DataTypes.STRING,
             allowNull: false,
             // if allowNull is set to false, we can run our data through validators before creating the table data
             validate: {
-                isURL: true
+                len: [1]
             }
         },
         // foreign key

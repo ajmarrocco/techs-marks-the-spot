@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     Post.findAll({
         // Query configuration
-        attributes: ['id', 'post_url', 'title', 'created_at'],
+        attributes: ['id', 'post_content', 'title', 'created_at'],
         order: [['created_at', 'DESC']], 
         include: [
             {
@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
 // GET /api/posts/1
 router.get('/:id', (req, res) => {
     Post.findByPk(req.params.id,{
-        attributes: ['id', 'post_url', 'title', 'created_at'],
+        attributes: ['id', 'post_content', 'title', 'created_at'],
         include: [
             {
                 model: User,
@@ -67,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        post_content: req.body.post_content,
         user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
