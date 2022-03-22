@@ -9,7 +9,7 @@
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js",
     "build": "ng build",
-    "heroku-postbuild": "ng build --prod" 
+    "heroku-postbuild": "node seeds/index.js" 
   },
   "keywords": [],
   "author": "",
