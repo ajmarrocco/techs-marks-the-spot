@@ -25,7 +25,7 @@ Post.init(
         },
         // define a post_content column
         post_content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             // if allowNull is set to false, we can run our data through validators before creating the table data
             validate: {
