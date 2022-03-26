@@ -1,3 +1,4 @@
+// import variables
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -64,7 +65,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/posts
 router.post('/', withAuth, (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    // expects {title: 'Test', post_content: Test post', user_id: 16}
     Post.create({
         title: req.body.title,
         post_content: req.body.post_content,
@@ -76,7 +77,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// PUT /api/posts/1
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
@@ -101,7 +102,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// DELETE /api/posts/1
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
@@ -120,5 +121,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// export router
 module.exports = router;

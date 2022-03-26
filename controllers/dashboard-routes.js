@@ -1,8 +1,9 @@
+// import variables
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-
+// GET /dashboard
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -40,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// GET /dashboard/edit/1
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -83,9 +84,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
-router.get('/newpost', (req, res) =>{
+// GET /dashboard/newpost
+router.get('/newpost', withAuth, (req, res) =>{
     res.render('add-post')
 });
-
+// export router
 module.exports = router;

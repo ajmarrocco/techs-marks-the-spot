@@ -1,9 +1,10 @@
+// import variables
 const Sequelize = require('sequelize');
-
+// require dotenv
 require('dotenv').config();
-
+// declare sequelize
 let sequelize;
-
+// Either use JAWDB or env variables
 if (process.env.JAWSDB_URL) {
     sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -13,4 +14,5 @@ if (process.env.JAWSDB_URL) {
         port: 3306
     });
 }
+// export sequelize
 module.exports = sequelize;

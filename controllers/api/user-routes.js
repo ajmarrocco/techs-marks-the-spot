@@ -1,3 +1,4 @@
+// import variables
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -41,7 +42,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
-    // expects {username: 'test', email: 'test@test.com', password: 'password1234'}
+    // expects {username: 'test', email: 'test@test.com', password: '1234'}
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -93,7 +94,7 @@ router.post('/login', (req, res) => {
         });    
     });  
 });
-
+// POST /api/users/logout
 router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -148,5 +149,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//export router
 module.exports = router;

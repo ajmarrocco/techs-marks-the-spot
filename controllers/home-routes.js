@@ -1,7 +1,8 @@
+// import variables
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-
+// GET /
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
@@ -39,7 +40,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// GET /post/1
 router.get('/post/:id', (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: [
@@ -83,7 +84,7 @@ router.get('/post/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
+// GET /login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -92,7 +93,7 @@ router.get('/login', (req, res) => {
     
     res.render('login');
 });
-
+// GET /signup
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -101,5 +102,5 @@ router.get('/signup', (req, res) => {
     
     res.render('signup');
 });
-
+// exports router
 module.exports = router;
